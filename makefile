@@ -11,8 +11,11 @@ build:
 
 
 ##################################  dev #################################
+NUM_CORES := $(shell nproc)
+NUM_JOBS := $(shell expr $(NUM_CORES) / 2)
+
 dev:
-	make -j 6 templ air devlib
+	make -j$(NUM_JOBS) templ air devlib
 
 check_air_installed:
 	@command -v air >/dev/null 2>&1 || { echo "Installing air..."; go install github.com/air-verse/air@latest; }
