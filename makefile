@@ -1,8 +1,6 @@
-.PHONY: all build
+.PHONY := dev build
 
-
-all: dev
-
+.DEFAULT_GOAL := dev
 
 ##################################  build final packeges #################################
 
